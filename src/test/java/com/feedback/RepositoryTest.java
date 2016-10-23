@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 
 /**
@@ -46,10 +48,17 @@ public class RepositoryTest {
 //        Assert.assertNotNull(feedback.getId());
     @Test
     public void test() throws InterruptedException {
-        Date date = new Date();
-        System.out.println(date.getTime());
-        Thread.sleep(1000);
-        System.out.println(date.getTime());
+        double total = 2+3+3;
+        System.out.println(total/3);
+        System.out.println(round(total/3, 1));
 
+    }
+
+    public static double round(double value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value);
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 }
