@@ -1,9 +1,17 @@
 package com.feedback.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * @author Divakaran Jeyachandran
  */
+@Entity
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int intemId;
     private String itemName;
     private int reviewStars;
