@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class FeedbackController {
     @RequestMapping(value = "/sendFeedback", method = RequestMethod.POST)
     public String postFeedback(@RequestBody Feedback feedback) {
+
         return "Success";
     }
 
